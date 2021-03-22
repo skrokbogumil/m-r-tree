@@ -1,0 +1,17 @@
+<?php
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use App\Command\TreeCommand;
+use App\Service\Correlate;
+use App\Service\ResultFileSaver;
+use App\Service\TreeParser;
+use App\Service\TreeFileHandler;
+
+$correlate = new Correlate(new TreeParser(), new TreeFileHandler());
+
+$application = new Application();
+
+$application->add(new TreeCommand($correlate, new ResultFileSaver()));
+
+$application->run();

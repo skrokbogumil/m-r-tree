@@ -1,0 +1,8 @@
+/vendor/
+
+.idea/
+*.swp
+*.swo
+*~
+.eslintrc.js
+.vscode/
